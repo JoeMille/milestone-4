@@ -31,7 +31,7 @@ STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
 
 
-ALLOWED_HOSTS = ['8001-joemille-milestone4-xzp0zuevqby.ws-eu110.gitpod.io', '8000-joemille-milestone4-xzp0zuevqby.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['cosmic-commerce2-1cb6505e2e10.herokuapp.com']
 
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
