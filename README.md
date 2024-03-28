@@ -1,39 +1,96 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# COSMIC COMMERCE
 
-Welcome,
+### Session end 2 days til deployment
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+populate products and featured products
+add further parameters to dashboard product admittance
+alter postioning of page footer 
+remove login form once user validated 
+add welcome {user} function once login form removed 
+print and check the user and product database for final checks
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+add wireframe and web map to readme as well as contributing project images 
 
-## Codeanywhere Reminders
+rework front-end features expanding on jquery use
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+attempt to import particles.json from portfolio and use as background 
 
-`python3 -m http.server`
+PEP8 CONFIRMATION
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+WEB3 VALIDATOR EVERY PAGE SOURCE AND AMEND 
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+REWORK FOR SEO SCORE AND BEST PRACTICES
 
-`http_server`
+RUN JAVASCRIPT FINAL TESTS 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+ISOLATE REVIEWS AND AUTHEN FUNCTION TO STRESS TEST 
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+BEGIN MIGRATING TO HEROKU 
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+DOUBLE TRIPLE CHECK DEBUG BLOCKS AND COMMENT CODES 
 
-To log into the Heroku toolbelt CLI:
+COPY README ESSAY INTO README FILE AND ADD IMAGES!!!!!!!
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+DEBUG FALSE
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
----
+## Table of Contents
 
-Happy coding!
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+
+
+## Usage
+
+use false credit details when testing stripe functionality: 4242 4242 4242 4242 (USD selected)
+
+## Bugs
+module import errors whilst creating reviews app, removed conflicting application names and path, rewrote reviews definition and tested by running isolated offline test. 
+
+reviews not being stored successfully due to naming and models set up preventing
+them from renderign to DB
+
+featured products added to add further specification to site, required secondary styling rather than inheriting as child
+
+admin database not receiving review "comments", renamed and reset 
+
+
+
+## Project features 
+
+django password hashing
+sql 
+context_processors 
+basket and checkout models
+user auth
+admin dashboard
+secure password hashing 
+extensive parameters to loaded products 
+
+## Contributing
+
+
+## License
+
+## Contact
+
+
+
+## Acknowledgements
+
+
+
+## Additional Sections (Optional)
+
+- Troubleshooting
+- FAQs
+- Changelog
+- Roadmap
+- Credits
+- etc.
+
