@@ -2,5 +2,25 @@
 {% load static %}
 
 {% block content %}
-    <!-- Your content goes here -->
+    <div class="completed-orders"></div>
+        <h2>Your Completed Orders</h2>
+        {% for order in completed_orders %}
+        <div class="order">
+            <h3>Order #{{ order.id }}</h3>
+            <p>Date: {{ order.date }}</p>
+            <p>Total: {{ order.total }}</p>
+            <ul>
+                {% for item in order.items %}
+                <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% empty %}
+        <p>You have no completed orders.</p>
+        {% endfor %}
+    </div>
+
+
+
+
 {% endblock %}
