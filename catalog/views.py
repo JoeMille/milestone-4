@@ -13,6 +13,7 @@ from django.db.models import Prefetch
 from django.core.mail import send_mail
 from .forms import ContactForm
 from .models import ContactMessage
+from django.contrib.auth.decorators import login_required
 
 # Index page view
 def index(request):
@@ -46,6 +47,7 @@ def index(request):
 
 
 # Add products to user basket
+@login_required
 def add_to_basket(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     basket, created = Basket.objects.get_or_create(user=request.user)

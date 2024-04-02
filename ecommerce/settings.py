@@ -31,7 +31,7 @@ STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
 
 
-ALLOWED_HOSTS = ['cosmic-commerce2-1cb6505e2e10.herokuapp.com']
+ALLOWED_HOSTS = ['cosmic-commerce2-1cb6505e2e10.herokuapp.com', '127.0.0.1']
 
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
@@ -43,6 +43,7 @@ DATABASES = {
 INSTALLED_APPS = [
     'catalog',
     'products',
+    'dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -149,3 +150,5 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptPasswordHasher',
 ]
 
+# Login Url
+LOGIN_URL = '/'

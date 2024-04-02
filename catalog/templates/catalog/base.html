@@ -13,24 +13,26 @@
 </head>
 <body>
     <!-- Content of the page -->
-    <header class="site-header">
-        <h1>COSMIC COMMERCE</h1>
-    </header>
-    <div id="particles-js"></div>
+
+
+    <header class="site-header"></header>
+    
     <section class="site-nav">
         <nav>
             <ul>
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
-                <li><a href="{% url 'products' %}">Products</a></li>
-                <li><a href="{% url 'reviews' %}">Reviews</a></li>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'checkout' %}">Checkout</a></li>
-                {% endif %}
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li><a href="{% url 'register' %}">REGISTER</a></li>
+                <li><a href="{% url 'products' %}">PRODUCTS</a></li>
+                <li><a href="{% url 'reviews' %}">REVIEWS</a></li>
+                <li><a href="{% url 'checkout' %}">CHECKOUT</a></li>
             </ul>
         </nav>
     </section>
 
+
+
+    <div id="particles-js"></div>
+    
     <div class="basket-info">
         {% if basket %}
             <p>User: {{ request.user.username }}</p>

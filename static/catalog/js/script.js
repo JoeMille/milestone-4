@@ -1,3 +1,14 @@
+// nav menu js 
+
+$(document).ready(function() {
+    // Function to expand elements on hover
+    $('nav ul li').hover(function() {
+        $(this).css('flex-grow', 3);
+        $(this).siblings().css('flex-grow', 1);
+    });
+});
+
+
 
 // Header image pulsating effect
 
@@ -25,20 +36,19 @@ window.addEventListener('load', function() {
     }
 });
 
-// Product image carousel
-function rotate() {
-    var lastChild = $('.slider div:last-child').clone();
-    /*$('#test').html(lastChild)*/
-    $('.slider div').removeClass('firstSlide')
-    $('.slider div:last-child').remove();
-    $('.slider').prepend(lastChild)
-    $(lastChild).addClass('firstSlide')
-  }
-  
-  window.setInterval(function(){
-    rotate()
-  }, 4000);
-  
+// code for index carousel
+// Move to next slide every 3 seconds
+setInterval(() => {
+    const currentSlide = track.querySelector('.current-slide');
+    const nextSlide = currentSlide.nextElementSibling || slides[0];
+    
+    // Move to the next slide
+    track.style.transform = 'translateX(-' + nextSlide.style.left + ')';
+    currentSlide.classList.remove('current-slide');
+    nextSlide.classList.add('current-slide');
+}, 3000);
+
+
 
 // Stripe Js payment form 
 // To use this payment method live, you must switch to HTTPs to ensure secure data transfer

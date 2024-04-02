@@ -45,80 +45,43 @@ body {
 }
 
 /* Nav bar */
-.site-nav ul {
-    font-family: "Quantico", sans-serif;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
+.site-nav {
+    font-family: "Exo 2", sans-serif;
+    color: #fff;
+    background-color: #180270;
+    padding: 10px 0;
+    opacity: 0.9;
+}
+
+nav ul {
+    list-style-type: none;
     padding: 0;
-    position: relative;
-    z-index: 4;
-    opacity: 0.7;
+    margin: 0;
+    display: flex;
 }
 
-.site-nav ul:hover {
-    opacity: 1;
+nav ul li {
+    font-family: "Exo 2", sans-serif;
+    flex-grow: 1;
+    text-align: center;
 }
 
-.site-nav li {
-    background-color: #f2f2f2;
-    border: 1px solid #000;
-    padding: 18px 36px; 
-    margin: 5px; 
-    border-radius: 5px;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-    width: 180px; 
-    height: 90px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.site-nav li:hover {
-    background-color: #0f0736;
-    opacity: 1;
-}
-
-.site-nav a {
+nav ul li a {
+    display: block;
+    padding: 10px;
+    font-family: "Exo 2", sans-serif;
+    font-size: 20px; /* adjust this to make the text larger */
+    font-weight: bold; /* adjust this to make the text thicker */
     text-decoration: none;
-    color: #000;
-    font-size: 1.8em; 
+    color: #fff;
+    transition: background-color 0.3s;
 }
 
-.site-nav a:hover {
-    color: white;
-    opacity: 1;
+nav ul li a:hover {
+    background-color: rgb(33,29,42);
+    font-family: "Orbitron", sans-serif;
 }
 
-/* Media queries for tablets and medium-sized devices */
-@media only screen and (max-width: 768px) {
-    .site-nav ul {
-        flex-direction: column;
-    }
-    .site-nav li {
-        width: auto; 
-        height: auto; 
-        padding: 10px 20px;
-    }
-    .site-nav a {
-        font-size: 1.4em; 
-    }
-}
-
-/* Media query CSS for mobile devices */
-@media only screen and (max-width: 480px) {
-    .site-nav ul {
-        flex-direction: column;
-    }
-    .site-nav li {
-        width: auto; 
-        height: auto; 
-        padding: 8px 16px;
-    }
-    .site-nav a {
-        font-size: 1.2em; 
-    }
-}
 
 /* basket styling */
 
@@ -147,137 +110,51 @@ body {
 }
 /* Logout function styling */
 
+.index-page-header{
+    font-family: "Exo 2", sans-serif;
+    color: white;
+    background-color: rgb(68, 37, 117);
+    max-width: 500px;
+    padding: 20px;
+    margin: 10px auto;
+    text-align: center;
+    justify-content: center;
+    border-radius: 5px;
+    align-items: center;
+    opacity: 0.8;
+}
 
 /* image carousel styling */
 
-.carousel-container{
-    width:70vw;
-    height:80vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position: relative;
-    z-index: 2;
-    margin: auto; 
+.carousel {
+    max-height: 400px;
+    max-width: 400px;
     overflow: hidden;
-    flex-grow: 1;
-    margin-top: -8% ;
-}
-.slider [class*="box"] {
-    /*   float: left; */
-    overflow: hidden;
-    border-radius:20px;
-    transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    position:absolute;
-    background-size: 100% 100%;
-    background-repeat: no-repeat; 
-    max-width: 500px; 
-    max-height: 400px; 
-}
-.box1 {      
-    background:url('../images/Dyson-portal-Legendary.JPG');
-    background-position:center center;
-}
-.box2 {
-    background:url('../images/Predator-armor-Legendary.JPG');
-    background-position:center center;
-}
-.box3 {
-    background:url('../images/Mining-engine-Legendary.JPG');
-    background-position:center center;
-}
-.box4 {
-    background:url('../images/caterpillar-mechsuit.JPG');
-    background-position:center center;
-}
-.box5 {
-    background:url('../images/prometheus-ship.jpeg');
-    background-position:center center;
-}
-.box6 {
-    background:url('../images/star-citizen-ship1.png');
-    background-position:center center;
-}
-.box7 {
-    background:url('../images/beta2-mining-droid.JPG');
-    background-position:center center;
-  }
-  
-.slider [class*="box"] {
-  /*   float: left; */
-    overflow: hidden;
-    border-radius:20px;
-    transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-      position:absolute;
-}
-.slider [class*="box"]:nth-child(7),
-.slider [class*="box"]:nth-child(1) {
-    width: 100vh;
-    height: 60vh;
-    transform: scale(0.2) translate(-50%,-50%);
-    top: 10%;
-    z-index:1;
-}
-.slider [class*="box"]:nth-child(2),
-.slider [class*="box"]:nth-child(6) {
-    width: 100vh;
-    height: 60vh;
-    transform: scale(0.4) translate(-50%,-50%);
-    top: 20%;
-    z-index:2;
-}
-.slider [class*="box"]:nth-child(3),
-.slider [class*="box"]:nth-child(5) {
-    width: 100vh;
-    height: 60vh;
-    transform: scale(0.6) translate(-50%,-50%);
-    top: 30%;
-    z-index:3;
-  }
-  .slider [class*="box"]:nth-child(4) {
-    width: 60vw;
-    height: 60vh;
-    border-color: #c92026;
-    color: #fff;
-    transform: scale(1) translate(-50%,-50%);
-    top: 50%;
-    z-index:4;
-  }
-.slider [class*="box"]:nth-child(1){
-    left:-13%;}
-.slider [class*="box"]:nth-child(2){
-    left:-5%;}
-.slider [class*="box"]:nth-child(3){
-    left:10%;}
-.slider [class*="box"]:nth-child(4){
-    left:50%;}
-.slider [class*="box"]:nth-child(5){
-    left:71%;}
-.slider [class*="box"]:nth-child(6){
-    left:85%;}
-.slider [class*="box"]:nth-child(7){
-    left:100%;}
-.slider .firstSlide {
-      -webkit-animation:  firstChild 1s;
-      animation:  firstChild 1s;
-}
-  /*Animation for buyers landing page slider*/
-@-webkit-keyframes firstChild {
-      0% {left:100%; transform: scale(0.2) translate(-50%,-50%);}
-      100% {left: -13%; transform: scale(0.2) translate(-50%,-50%);}
-}
-@keyframes firstChild {
-     0% {left:100%; transform: scale(0.2) translate(-50%,-50%);}
-      100% {left: -13%; transform: scale(0.2) translate(-50%,-50%);}
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
-/* CSS for mobile and small devices */
-@media only screen and (max-width: 480px) {
-    .carousel-container {
-        display: none;
-    }
+.carousel__track {
+    display: flex;
+    animation: scroll 20s linear infinite;
 }
 
+.carousel__slide {
+    width: 500px;
+    height: 400px;
+    flex: 0 0 auto;
+}
+
+.carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
 /* index main content */
 
 .index-page-welcome {

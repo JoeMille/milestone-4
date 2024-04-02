@@ -1,21 +1,39 @@
 {% extends 'catalog/base.html' %}
+{% load static %}
+
 
 {% block content %}
+<!--Page Header-->
+<div class="index-page-header">
+  <h1>COSMIC COMMERCE</h1>
+  <p>Secure site for purchase of exploratory goods.</p>
+</div>
 
-<!--Page Content-->
-
-<div class="carousel-container">
-  <div class="slider">
-    <div class="box1"></div>
-    <div class="box2"></div>
-    <div class="box3"></div>
-    <div class="box4"></div>
-    <div class="box5"></div>
-    <div class="box6"></div>
-    <div class="box7"></div>
+<!--image carousel-->
+<div class="image-carousel">
+  <div class="carousel__track-container">
+      <ul class="carousel__track">
+          <li class="carousel__slide current-slide">
+              <img class="carousel__image" src="{% static 'catalog/images/Predator-armor-Legendary.jpg' %}" alt="Image 1">
+          </li>
+          <li class="carousel__slide">
+              <img class="carousel__image" src="{% static 'catalog/images/caterpillar-mechsuit.JPG' %}" alt="Image 2">
+          </li>
+          <li class="carousel__slide">
+              <img class="carousel__image" src="{% static 'catalog/images/platinum-pilot-armor.PNG' %}" alt="Image 3">
+          </li>
+          <li class="carousel__slide">
+            <img class="carousel__image" src="{% static 'catalog/images/thick-armor.PNG' %}" alt="Image 3">
+        </li>
+        <li class="carousel__slide">
+          <img class="carousel__image" src="{% static 'catalog/images/forerunner-lander.PNG' %}" alt="Image 3">
+      </li>
+      <li class="carousel__slide">
+        <img class="carousel__image" src="{% static 'catalog/images/standard-eva-suit.PNG' %}" alt="Image 3">
+    </li>
+         </ul>
   </div>
 </div>
-<div id="test"></div>
 
 
 <!-- User authenticate and greeting section -->
@@ -44,7 +62,10 @@
 <!-- Featured Products -->
 <div class="featured-product-title">
   <h2>FEATURED INVENTORY</h2>
-  <p>Delivery within Alpha Centauri Star System</p>
+  <h3>Terran Delivery Optional</h3>
+  <p>Check out some of our Featured Inventory below or alternatively,
+    <a href="{% url 'products' %}">browse our full inventory</a>
+  </p>
 </div>
 
 <div class="featured-products">
