@@ -29,8 +29,11 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    overflow: hidden; /* Add this line */
 }
 .loader {
+    position: relative;
+    left: -50%;
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #3498db;
@@ -198,11 +201,11 @@ nav ul li a:hover {
     font-family: "Exo 2", sans-serif;
     color: white;
     text-align: center;
-    background-color: rgb(68, 37, 117);
-    max-width: 600px; /* Reduced from 210px */
-    max-height: 300px; /* Reduced from 400px */
+    background-color: rgb(33, 44, 156);
+    max-width: 600px; 
+    max-height: 300px; 
     border-radius: 5px;
-    padding: 5px; /* Reduced from 10px */
+    padding: 5px; 
     position: fixed; 
     top: 0;
     left: 0;
@@ -214,9 +217,9 @@ nav ul li a:hover {
     color: white;
     text-align: center;
     background-color: rgb(33, 44, 156);
-    max-width: 300px; /* Reduced from 180px */
+    max-width: 300px; 
     border-radius: 5px;
-    padding: 5px; /* Reduced from 10px */
+    padding: 5px; 
     position: fixed;
     top: 0;
     left: 0;
@@ -224,7 +227,7 @@ nav ul li a:hover {
 }
 
 
-/* featured product styling */
+/* INDEX PAGE featured product styling */
 
 .featured-product-title {
     font-family: "Quantic", sans-serif;
@@ -241,7 +244,7 @@ nav ul li a:hover {
 }
 
 
-/* styling for register page */
+/* REGISTER PAGE styling */
 
 .user-registration {
     font-family: "Quantico", sans-serif;
@@ -262,16 +265,18 @@ nav ul li a:hover {
 }
 
 
-/* Styling for the product page */
+/* PRODUCT PAGE styling */
 
 .product-page-title {
     font-family: "Quantico", sans-serif;
+    background-image: url(../images/dark-planet1.PNG);
     color: white;
     font-size: 30px;
     text-align: center;
     padding: 5px; 
     height: 200px; 
     display: block;  
+    margin-top: 50px;
     margin-bottom: 0; 
 }
 
@@ -521,7 +526,7 @@ nav ul li a:hover {
 }
 
 
-/* Styling for the Reviews page */
+/* REVIEWS PAGE styles */
 
 .review-page-title {
     font-family: "Quantico", sans-serif;

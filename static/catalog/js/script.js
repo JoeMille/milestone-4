@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         document.querySelector(".loader-wrapper").style.display = "none";
         document.querySelector("#content").style.display = "block";
-    }, 4000); 
+    }, 2000); 
 
     // p5.js code
     new p5(function(sketch) {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let b = sketch.random(255);
             sketch.noStroke();
             sketch.fill(r, g, b, 100);
-            sketch.ellipse(x, y, 4, 4); // This sets the size of the dots to 4
+            sketch.ellipse(x, y, 4, 4); 
         }
     });
 });
