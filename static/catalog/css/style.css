@@ -379,14 +379,20 @@ nav ul li a:hover {
 .legendary-products-title {
     margin-top: 50px;
     font-family: "Quantico", sans-serif;
+    text-align: center;
     color: white;
     font-size: 30px;
-    text-align: center;
     padding: 10px;
-    background-size: cover; ;
+    background-image: url(../images/dark-planet5.PNG);
+    background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .legendary-products {
     font-family: "Quantico", sans-serif;
     position: relative;
