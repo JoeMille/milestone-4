@@ -3,19 +3,24 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         document.querySelector(".loader-wrapper").style.display = "none";
         document.querySelector("#content").style.display = "block";
-    }, 5000); // 5000 milliseconds = 5 seconds
+    }, 3000); 
 });
 
 
 // code for particles.js background
 window.addEventListener('load', function() {
     if (typeof particlesJS !== 'undefined') {
+        // Existing particles.js instance
         particlesJS.load('particles-js', particlesJsonUrl, function() {
             console.log('particles.js loaded - callback');
         });
+
+        // New particles.js instance for the loader wrapper
+        particlesJS.load('particles-js-loader', particlesJsonUrl, function() {
+            console.log('particles.js loaded for loader - callback');
+        });
     }
 });
-
 
 
 // nav menu js 
@@ -29,7 +34,6 @@ $(document).ready(function() {
 });
 
 
-// Header image pulsating effect
 
 // Header image pulsating effect
 const header = document.querySelector('.site-header');
@@ -47,19 +51,26 @@ setInterval(() => {
 }, 2000);
 
 
-
 // code for index carousel
+const track = document.querySelector('.carousel__track');
+const slides = Array.from(track.children);
+
+// Set the left position of each slide
+slides.forEach((slide, index) => {
+    slide.style.left = slide.getBoundingClientRect().width * index + 'px';
+});
+
 // Move to next slide every 3 seconds
 setInterval(() => {
     const currentSlide = track.querySelector('.current-slide');
     const nextSlide = currentSlide.nextElementSibling || slides[0];
     
     // Move to the next slide
+    const slideWidth = currentSlide.getBoundingClientRect().width;
     track.style.transform = 'translateX(-' + nextSlide.style.left + ')';
     currentSlide.classList.remove('current-slide');
     nextSlide.classList.add('current-slide');
 }, 3000);
-
 
 
 // Stripe Js payment form 

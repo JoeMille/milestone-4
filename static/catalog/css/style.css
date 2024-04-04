@@ -113,6 +113,7 @@ nav ul li a {
 nav ul li a:hover {
     background-color: rgb(33,29,42);
     font-family: "Orbitron", sans-serif;
+    box-shadow: 0 0 30px #3498db, 0 0 50px #3498db, 0 0 80px #3498db, 0 0 100px #3498db;
 }
 
 
@@ -121,7 +122,7 @@ nav ul li a:hover {
 .basket-info {
     position: fixed;
     right: 0;
-    background-color: rgb(68, 37, 117);
+    background-color: rgb(33, 44, 156);
     padding: 20px;
     border: 1px solid #000;
     border-radius: 5px;
@@ -144,17 +145,18 @@ nav ul li a:hover {
 /* Logout function styling */
 
 .index-page-header{
-    font-family: "Exo 2", sans-serif;
+    font-family: "Orbitron", sans-serif;
     color: white;
-    background-color: rgb(68, 37, 117);
+    background-color: rgb(33, 44, 156);
     max-width: 500px;
     padding: 20px;
-    margin: 10px auto;
+    margin: 50px auto 35px; /* 50px margin-top, auto margin-right and margin-left, 10px margin-bottom */
     text-align: center;
     justify-content: center;
     border-radius: 5px;
     align-items: center;
     opacity: 0.8;
+    box-shadow: 0 0 30px #3498db, 0 0 50px #3498db, 0 0 80px #3498db, 0 0 100px #3498db;
 }
 
 /* image carousel styling */
@@ -195,38 +197,30 @@ nav ul li a:hover {
     color: white;
     text-align: center;
     background-color: rgb(68, 37, 117);
-    max-width: 210px;
+    max-width: 600px; /* Reduced from 210px */
+    max-height: 300px; /* Reduced from 400px */
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px; /* Reduced from 10px */
     position: fixed; 
-    top: 48vh; 
-    left: 1vw; 
+    top: 0;
+    left: 0;
     z-index: 3;
 }
-
-/* User Greeting styling */
 
 .user-greeting {
     font-family: "Exo 2", sans-serif;
     color: white;
     text-align: center;
     background-color: rgb(68, 37, 117);
-    max-width: 180px;
+    max-width: 300px; /* Reduced from 180px */
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px; /* Reduced from 10px */
     position: fixed;
-    top: 400px; /* adjust as needed */
-    left: 1vw; 
+    top: 0;
+    left: 0;
     z-index: 3;
 }
-/* CSS for mobile and small devices */
-@media only screen and (max-width: 480px) {
-    .index-page-welcome, .user-greeting {
-        position: static;
-        top: auto;
-        left: auto;
-    }
-}
+
 
 /* featured product styling */
 
@@ -236,8 +230,12 @@ nav ul li a:hover {
     font-size: 30px;
     text-align: center;
     padding: 10px;
-    background-size: cover; ;
+    max-width: 75%;
+    margin: 35px auto; /* This will add 35px of space above and below the div */
+    background-image: url(../images/dark-planet2.PNG);
+    background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 5px;
 }
 
 

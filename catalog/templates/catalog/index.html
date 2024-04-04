@@ -3,10 +3,31 @@
 
 
 {% block content %}
+
+<!-- User authenticate and greeting section -->
+
+{% if user.is_authenticated %}
+<div class="user-greeting">
+  <h2>Welcome: {{ user.username }}</h2>
+  <form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+  </form>
+</div>
+{% else %}
+<div class="index-page-welcome">
+  <h2>Welcome!</h2>
+  <p>Login here,<a href="{% url 'register' %}">signup</a> here or browse as our guest</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+</div>
+{% endif %}
 <!--Page Header-->
 <div class="index-page-header">
-  <h1>COSMIC COMMERCE</h1>
-  <p>Secure site for purchase of exploratory goods.</p>
+  <h1>COSMOS X</h1>
 </div>
 
 <!--image carousel-->
@@ -14,56 +35,34 @@
   <div class="carousel__track-container">
       <ul class="carousel__track">
           <li class="carousel__slide current-slide">
-              <img class="carousel__image" src="{% static 'catalog/images/Predator-armor-Legendary.jpg' %}" alt="Image 1">
+              <img class="carousel__image" src="{% static 'catalog/images/dark-planet1.PNG' %}" alt="Image 1">
           </li>
           <li class="carousel__slide">
-              <img class="carousel__image" src="{% static 'catalog/images/caterpillar-mechsuit.JPG' %}" alt="Image 2">
+              <img class="carousel__image" src="{% static 'catalog/images/dark-planet2.PNG' %}" alt="Image 2">
           </li>
           <li class="carousel__slide">
               <img class="carousel__image" src="{% static 'catalog/images/platinum-pilot-armor.PNG' %}" alt="Image 3">
           </li>
           <li class="carousel__slide">
-            <img class="carousel__image" src="{% static 'catalog/images/thick-armor.PNG' %}" alt="Image 3">
+            <img class="carousel__image" src="{% static 'catalog/images/thick-armor.PNG' %}" alt="Image 4">
         </li>
         <li class="carousel__slide">
-          <img class="carousel__image" src="{% static 'catalog/images/forerunner-lander.PNG' %}" alt="Image 3">
+          <img class="carousel__image" src="{% static 'catalog/images/dark-planet3.PNG' %}" alt="Image 5">
       </li>
       <li class="carousel__slide">
-        <img class="carousel__image" src="{% static 'catalog/images/standard-eva-suit.PNG' %}" alt="Image 3">
+        <img class="carousel__image" src="{% static 'catalog/images/standard-eva-suit.PNG' %}" alt="Image 6">
     </li>
          </ul>
   </div>
 </div>
 
 
-<!-- User authenticate and greeting section -->
-
-  {% if user.is_authenticated %}
-    <div class="user-greeting">
-      <h2>Welcome: {{ user.username }}</h2>
-      <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
-      </form>
-    </div>
-  {% else %}
-    <div class="index-page-welcome">
-      <h2>Welcome!</h2>
-      <p>Login here,<a href="{% url 'register' %}">signup</a> here or browse as our guest</p>
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  {% endif %}
-
 
 <!-- Featured Products -->
 <div class="featured-product-title">
   <h2>FEATURED INVENTORY</h2>
-  <h3>Terran Delivery Optional</h3>
-  <p>Check out some of our Featured Inventory below or alternatively,
+  <p>COSMOS X proudly supplies durable, defensive and highly effective equipment for all exploratory needs.
+    <br>For more products,
     <a href="{% url 'products' %}">browse our full inventory</a>
   </p>
 </div>
