@@ -665,3 +665,15 @@ nav ul li a:hover {
     margin-right: 10px; 
     margin-left: 10px; 
 }
+
+/* CSS for Dashboard App */
+
+.completed-orders {
+    font-family: "Quantico", sans-serif;
+    background-color: white;
+    padding: 20px;
+    margin: 0 auto;
+    width: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
