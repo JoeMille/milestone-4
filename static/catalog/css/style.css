@@ -17,6 +17,7 @@ body {
     background-size: cover;
 }
   
+/* Page loader styling */
 .loader-wrapper {
     position: fixed;
     top: 0;
@@ -40,7 +41,7 @@ body {
     box-shadow: 0 0 30px #3498db, 0 0 50px #3498db, 0 0 80px #3498db, 0 0 100px #3498db;
 }
 
-/* Safari */
+/* Safari Available*/
 @-webkit-keyframes spinAndRotate {
     0% { -webkit-transform: rotate(0deg) rotate3d(1, 1, 1, 0deg); }
     100% { -webkit-transform: rotate(360deg) rotate3d(1, 1, 1, 360deg); }
@@ -50,6 +51,8 @@ body {
     0% { transform: rotate(0deg) rotate3d(1, 1, 1, 0deg); }
     100% { transform: rotate(360deg) rotate3d(1, 1, 1, 360deg); }
 }
+
+/* Header styling */
   
 .site-header {
     background-image: url(../images/planet-image.jpeg);
@@ -66,7 +69,6 @@ body {
     align-items: center;
     justify-content: center;
     transition: filter 2s ease-in-out;
-    opacity: 0.8;
 }
 
 /* Media query for small screens */
@@ -211,7 +213,7 @@ nav ul li a:hover {
     font-family: "Exo 2", sans-serif;
     color: white;
     text-align: center;
-    background-color: rgb(68, 37, 117);
+    background-color: rgb(33, 44, 156);
     max-width: 300px; /* Reduced from 180px */
     border-radius: 5px;
     padding: 5px; /* Reduced from 10px */
