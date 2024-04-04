@@ -333,7 +333,7 @@ nav ul li a:hover {
     color: white;
     font-size: 30px;
     padding: 10px;
-    background-image: url(../images/dark-planet2.PNG);
+    background-image: url(../images/blue-starry-background.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: 50px;
@@ -342,6 +342,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 30px #3498db, 0 0 50px #3498db, 0 0 80px #3498db, 0 0 100px #3498db;
 }
 
 .featured-products {
@@ -400,6 +401,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 30px #3498db, 0 0 50px #3498db, 0 0 80px #3498db, 0 0 100px #3498db;
 }
 
 .legendary-products {

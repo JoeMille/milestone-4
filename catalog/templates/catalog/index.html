@@ -35,7 +35,7 @@
   <div class="carousel__track-container">
       <ul class="carousel__track">
           <li class="carousel__slide current-slide">
-              <img class="carousel__image" src="{% static 'catalog/images/dark-planet1.PNG' %}" alt="Image 1">
+              <img class="carousel__image" src="{% static 'catalog/images/multi-unit-ship.PNG' %}" alt="Image 1">
           </li>
           <li class="carousel__slide">
               <img class="carousel__image" src="{% static 'catalog/images/dark-planet2.PNG' %}" alt="Image 2">
@@ -44,18 +44,36 @@
               <img class="carousel__image" src="{% static 'catalog/images/platinum-pilot-armor.PNG' %}" alt="Image 3">
           </li>
           <li class="carousel__slide">
-            <img class="carousel__image" src="{% static 'catalog/images/thick-armor.PNG' %}" alt="Image 4">
+            <img class="carousel__image" src="{% static 'catalog/images/dark-planet3.PNG' %}" alt="Image 4">
         </li>
         <li class="carousel__slide">
-          <img class="carousel__image" src="{% static 'catalog/images/dark-planet3.PNG' %}" alt="Image 5">
+          <img class="carousel__image" src="{% static 'catalog/images/standard-eva-suit.PNG' %}" alt="Image 5">
       </li>
       <li class="carousel__slide">
-        <img class="carousel__image" src="{% static 'catalog/images/standard-eva-suit.PNG' %}" alt="Image 6">
+        <img class="carousel__image" src="{% static 'catalog/images/dark-planet5.PNG' %}" alt="Image 6">
     </li>
          </ul>
   </div>
 </div>
 
+<!-- Legendary Equipment Section -->
+<div class="legendary-products-title">
+  <h2>LEGENDARY EQUIPMENT</h2>
+  <p>TIMELESS EXPLORATORY GEAR UTILISING THE FINEST IN ALLOY FABRICATION</p>
+</div>
+
+<div class="legendary-products">
+  {% for product in legendary_products|slice:":3" %}
+    <div class="legendary-product">
+      <h3>{{ product.title }}</h3> 
+      <img src="{{ product.image.url }}" alt="{{ product.name }}">
+      <p>Price: ${{ product.price }}</p>
+      <p>{{ product.description }}</p> 
+    </div>
+  {% empty %}
+    <p>No legendary products at this time.</p>
+  {% endfor %}
+</div>
 
 
 <!-- Featured Products -->
@@ -80,24 +98,7 @@
   {% endfor %}
 </div>
 
-<!-- Legendary Equipment Section -->
-<div class="legendary-products-title">
-  <h2>LEGENDARY EQUIPMENT</h2>
-  <p>TIMELESS EXPLORATORY GEAR UTILISING THE FINEST IN ALLOW FABRICATION</p>
-</div>
 
-<div class="legendary-products">
-  {% for product in legendary_products|slice:":3" %}
-    <div class="legendary-product">
-      <h3>{{ product.title }}</h3> 
-      <img src="{{ product.image.url }}" alt="{{ product.name }}">
-      <p>Price: ${{ product.price }}</p>
-      <p>{{ product.description }}</p> 
-    </div>
-  {% empty %}
-    <p>No legendary products at this time.</p>
-  {% endfor %}
-</div>
 
 <!-- Further Information-->
 
