@@ -88,6 +88,29 @@ setInterval(() => {
     nextSlide.classList.add('current-slide');
 }, 3000);
 
+// PRODUCTS PAGE scripts
+window.onload = function() {
+    // Select all product images
+    const productImages = document.querySelectorAll('.product-image');
+
+    // Add event listeners to each image
+    productImages.forEach(image => {
+        image.addEventListener('mouseover', magnify);
+        image.addEventListener('mouseout', demagnify);
+    });
+
+    // Function to magnify image
+    function magnify(e) {
+        e.target.style.transform = 'scale(1.2)';
+        e.target.style.transition = 'transform 0.3s ease';
+    }
+
+    // Function to demagnify image
+    function demagnify(e) {
+        e.target.style.transform = 'scale(1)';
+        e.target.style.transition = 'transform 0.3s ease';
+    }
+}
 
 // Stripe Js payment form 
 // To use this payment method live, you must switch to HTTPs to ensure secure data transfer

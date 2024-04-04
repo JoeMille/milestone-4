@@ -82,6 +82,9 @@ def products(request):
     )
     return render(request, 'catalog/products.html', {'categories': categories})
 
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    return render(request, 'catalog/product_detail.html', {'product': product})
 
 # Checkout page view
 def checkout(request):
