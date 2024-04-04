@@ -31,7 +31,7 @@ STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
 
 
-ALLOWED_HOSTS = ['cosmic-commerce2-1cb6505e2e10.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['cosmic-commerce2-1cb6505e2e10.herokuapp.com', '127.0.0.1', 'peaceful-beach-57387-0a66191160e7.herokuapp.com']
 
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
