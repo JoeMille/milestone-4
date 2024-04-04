@@ -327,13 +327,21 @@ nav ul li a:hover {
 /* Featured products styling */
 
 .featured-product-title {
+    margin-top: 50px;
     font-family: "Quantico", sans-serif;
+    text-align: center;
     color: white;
     font-size: 30px;
-    text-align: center;
     padding: 10px;
-    background-size: cover; ;
+    background-image: url(../images/dark-planet2.PNG);
+    background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .featured-products {
@@ -383,7 +391,7 @@ nav ul li a:hover {
     color: white;
     font-size: 30px;
     padding: 10px;
-    background-image: url(../images/dark-planet5.PNG);
+    background-image: url(../images/dark-planet1.PNG);
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: 50px;
@@ -393,6 +401,7 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
 }
+
 .legendary-products {
     font-family: "Quantico", sans-serif;
     position: relative;

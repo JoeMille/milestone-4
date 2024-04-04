@@ -1,12 +1,3 @@
-// code for page wrapper
-document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        document.querySelector(".loader-wrapper").style.display = "none";
-        document.querySelector("#content").style.display = "block";
-    }, 2000); 
-});
-
-
 // code for particles.js background
 window.addEventListener('load', function() {
     if (typeof particlesJS !== 'undefined') {
@@ -14,13 +5,38 @@ window.addEventListener('load', function() {
         particlesJS.load('particles-js', particlesJsonUrl, function() {
             console.log('particles.js loaded - callback');
         });
-
-        // New particles.js instance for the loader wrapper
-        particlesJS.load('particles-js-loader', particlesJsonUrl, function() {
-            console.log('particles.js loaded for loader - callback');
-        });
     }
 });
+
+
+
+// code for page wrapper
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        document.querySelector(".loader-wrapper").style.display = "none";
+        document.querySelector("#content").style.display = "block";
+    }, 4000); 
+
+    // p5.js code
+    new p5(function(sketch) {
+        sketch.setup = function() {
+            let canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
+            canvas.parent('p5-canvas');
+        }
+
+        sketch.draw = function() {
+            let x = sketch.random(sketch.width);
+            let y = sketch.random(sketch.height);
+            let r = sketch.random(255);
+            let g = sketch.random(255);
+            let b = sketch.random(255);
+            sketch.noStroke();
+            sketch.fill(r, g, b, 100);
+            sketch.ellipse(x, y, 4, 4); // This sets the size of the dots to 4
+        }
+    });
+});
+
 
 
 // nav menu js 
