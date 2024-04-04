@@ -1,3 +1,23 @@
+// code for page wrapper
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        document.querySelector(".loader-wrapper").style.display = "none";
+        document.querySelector("#content").style.display = "block";
+    }, 5000); // 5000 milliseconds = 5 seconds
+});
+
+
+// code for particles.js background
+window.addEventListener('load', function() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS.load('particles-js', particlesJsonUrl, function() {
+            console.log('particles.js loaded - callback');
+        });
+    }
+});
+
+
+
 // nav menu js 
 
 $(document).ready(function() {
@@ -7,7 +27,6 @@ $(document).ready(function() {
         $(this).siblings().css('flex-grow', 1);
     });
 });
-
 
 
 // Header image pulsating effect
@@ -27,14 +46,7 @@ setInterval(() => {
     }
 }, 2000);
 
-// code for particles.js background
-window.addEventListener('load', function() {
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS.load('particles-js', particlesJsonUrl, function() {
-            console.log('particles.js loaded - callback');
-        });
-    }
-});
+
 
 // code for index carousel
 // Move to next slide every 3 seconds
