@@ -41,7 +41,11 @@
       }
     },
     "line_linked": {
-      "enable": false
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.2,
+      "width": 1
     },
     "move": {
       "enable": true,
@@ -59,11 +63,11 @@
     }
   },
   "responsive": [
-      {
-          "max_width": 800,
-          "settings": {
-              "particles_nb": 20
-          }
+    {
+      "max_width": 800,
+      "settings": {
+        "particles_nb": 20
       }
+    }
   ]
 }

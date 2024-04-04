@@ -22,21 +22,18 @@ document.addEventListener("DOMContentLoaded", function() {
         sketch.setup = function() {
             let canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
             canvas.parent('p5-canvas');
+            sketch.background(0); // Set the background color to black
         }
 
         sketch.draw = function() {
             let x = sketch.random(sketch.width);
             let y = sketch.random(sketch.height);
-            let r = sketch.random(255);
-            let g = sketch.random(255);
-            let b = sketch.random(255);
             sketch.noStroke();
-            sketch.fill(r, g, b, 100);
+            sketch.fill(255); // Set the fill color to white
             sketch.ellipse(x, y, 4, 4); 
         }
     });
 });
-
 
 
 // nav menu js 
@@ -89,28 +86,7 @@ setInterval(() => {
 }, 3000);
 
 // PRODUCTS PAGE scripts
-window.onload = function() {
-    // Select all product images
-    const productImages = document.querySelectorAll('.product-image');
 
-    // Add event listeners to each image
-    productImages.forEach(image => {
-        image.addEventListener('mouseover', magnify);
-        image.addEventListener('mouseout', demagnify);
-    });
-
-    // Function to magnify image
-    function magnify(e) {
-        e.target.style.transform = 'scale(1.2)';
-        e.target.style.transition = 'transform 0.3s ease';
-    }
-
-    // Function to demagnify image
-    function demagnify(e) {
-        e.target.style.transform = 'scale(1)';
-        e.target.style.transition = 'transform 0.3s ease';
-    }
-}
 
 // Stripe Js payment form 
 // To use this payment method live, you must switch to HTTPs to ensure secure data transfer
