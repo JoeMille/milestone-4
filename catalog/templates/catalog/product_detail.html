@@ -1,12 +1,13 @@
 {% extends 'catalog/base.html' %}
 
 {% block content %}
+<div class="product-detail-content">
+    <h2 class="product-detail-title">{{ product.title }}</h2>
+    <p class="product-detail-category">Category: {{ product.category.name }}</p>
+    <img class="product-detail-image" src="{{ product.image.url }}" alt="{{ product.title }}">
+    <p class="product-detail-description">{{ product.description }}</p>
+    <p class="product-detail-price">Price: {{ product.price }}</p>
 
-
-
-
-
-
-
-
+</div>
+<!-- Add more product details here -->
 {% endblock %}
