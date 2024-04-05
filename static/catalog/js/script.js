@@ -8,33 +8,47 @@ window.addEventListener('load', function() {
     }
 });
 
-
-
 // code for page wrapper
 document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        document.querySelector(".loader-wrapper").style.display = "none";
-        document.querySelector("#content").style.display = "block";
-    }, 2000); 
+    let loaderWrapper = document.querySelector(".loader-wrapper");
+    let content = document.querySelector("#content");
+    if (loaderWrapper && content) {
+        loaderWrapper.style.display = "block";
+        content.style.display = "none";
+        setTimeout(function() {
+            loaderWrapper.style.display = "none";
+            content.style.display = "block";
+        }, 2000); 
+    }
 
     // p5.js code
-    new p5(function(sketch) {
-        sketch.setup = function() {
-            let canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
-            canvas.parent('p5-canvas');
-            sketch.background(0); // Set the background color to black
-        }
-
-        sketch.draw = function() {
-            let x = sketch.random(sketch.width);
-            let y = sketch.random(sketch.height);
-            sketch.noStroke();
-            sketch.fill(255); // Set the fill color to white
-            sketch.ellipse(x, y, 4, 4); 
-        }
-    });
+    if (typeof p5 !== 'undefined') {
+        new p5(function(sketch) {
+            sketch.setup = function() {
+                let canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
+                canvas.parent('p5-canvas');
+                sketch.background(0); 
+            }
+    
+            sketch.draw = function() {
+                let x = sketch.random(sketch.width);
+                let y = sketch.random(sketch.height);
+                sketch.noStroke();
+                sketch.fill(255); 
+                sketch.ellipse(x, y, 2, 2); 
+            }
+        });
+    }
 });
 
+// nav menu js 
+$(document).ready(function() {
+    // Function to expand elements on hover
+    $('nav ul li').hover(function() {
+        $(this).css('flex-grow', 3);
+        $(this).siblings().css('flex-grow', 1);
+    });
+});
 
 // nav menu js 
 
