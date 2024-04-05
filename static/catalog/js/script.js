@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
                 canvas.parent('p5-canvas');
                 sketch.background(0); 
-            }
+            };
     
             sketch.draw = function() {
                 let x = sketch.random(sketch.width);
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 sketch.noStroke();
                 sketch.fill(255); 
                 sketch.ellipse(x, y, 2, 2); 
-            }
+            };
         });
     }
 });
@@ -80,39 +80,44 @@ setInterval(() => {
 
 // code for index carousel
 const track = document.querySelector('.carousel__track');
-const slides = Array.from(track.children);
-
-// Set the left position of each slide
-slides.forEach((slide, index) => {
-    slide.style.left = slide.getBoundingClientRect().width * index + 'px';
-});
+let slides;
+if (track) {
+    slides = Array.from(track.children);
+    // Set the left position of each slide
+    slides.forEach((slide, index) => {
+        slide.style.left = slide.getBoundingClientRect().width * index + 'px';
+    });
+} else {
+    console.error('Element with class "carousel__track" not found');
+}
 
 // Move to next slide every 3 seconds
-setInterval(() => {
-    const currentSlide = track.querySelector('.current-slide');
-    const nextSlide = currentSlide.nextElementSibling || slides[0];
-    
-    // Move to the next slide
-    const slideWidth = currentSlide.getBoundingClientRect().width;
-    track.style.transform = 'translateX(-' + nextSlide.style.left + ')';
-    currentSlide.classList.remove('current-slide');
-    nextSlide.classList.add('current-slide');
-}, 3000);
-
+if (slides) {
+    setInterval(() => {
+        const currentSlide = track.querySelector('.current-slide');
+        const nextSlide = currentSlide.nextElementSibling || slides[0];
+        
+        // Move to the next slide
+        const slideWidth = currentSlide.getBoundingClientRect().width;
+        track.style.transform = 'translateX(-' + nextSlide.style.left + ')';
+        currentSlide.classList.remove('current-slide');
+        nextSlide.classList.add('current-slide');
+    }, 3000);
+}
 // PRODUCTS PAGE scripts
 
 
-// Stripe Js payment form 
-// To use this payment method live, you must switch to HTTPs to ensure secure data transfer
-
-var stripe = Stripe('pk_test_51Own3jFlpTEzDIrEWgl8A3ChU9v5tddxPbVh8VTxHJJHAXU0nzAVBRGGvap56gncNJuVudSf0uixGMrU77It6sUV00qCFkadDE');
+var stripe = Stripe('pk_test_51P2JooHuzaSV1vlk5q623torJaeFTAdDNIHcrdYGi3uOoDr7fpWZFXzG1nGDA8V2q8SMinS9u3r1b3E6kQVw2nqw00p8N0YEYa');
 var elements = stripe.elements();
 
 var card = elements.create('card');
 
 // Check if #card-element exists before mounting
-if (document.querySelector('#card-element')) {
+var cardElement = document.querySelector('#card-element');
+if (cardElement) {
     card.mount('#card-element');
+} else {
+    console.error('Element with id "card-element" not found');
 }
 
 var form = document.getElementById('payment-form');
@@ -125,13 +130,14 @@ if (form) {
                 var errorElement = document.getElementById('card-errors');
                 errorElement.textContent = result.error.message;
             } else {
+                console.log('Token created:', result.token.id);  // Log the token ID
                 stripeTokenHandler(result.token);
             }
         });
     });
+} else {
+    console.error('Element with id "payment-form" not found');
 }
-
-// Submit Stripe form to Django
 
 function stripeTokenHandler(token) {
     var form = document.getElementById('payment-form');
@@ -142,10 +148,12 @@ function stripeTokenHandler(token) {
         hiddenInput.setAttribute('value', token.id);
         form.appendChild(hiddenInput);
 
+        console.log('Form submitted with token:', token.id);  // Log the token ID
         form.submit();
+    } else {
+        console.error('Element with id "payment-form" not found');
     }
 }
-
 // Validate review rating field max value 10 REVIEWS PAGE FORM
 
 window.onload = function() {
@@ -159,7 +167,7 @@ window.onload = function() {
             }
         });
     }
-}
+};
 
 
 
