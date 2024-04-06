@@ -66,3 +66,33 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return self.title  # return the message title
+
+# Order model, allowing for the creation of orders with a user, status, created_at, and updated_at field
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class Order(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('completed', 'Completed'),
+        ('cancelled', 'Cancelled'),
+    ]
+
+    PAYMENT_CHOICES = [
+        ('credit_card', 'Credit Card'),
+        ('debit_card', 'Debit Card'),
+        ('paypal', 'PayPal'),
+        # Add more payment types as needed
+    ]
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='catalog_orders')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+    address = models.CharField(max_length=255, null=True)  
+    payment_type = models.CharField(max_length=20, choices=PAYMENT_CHOICES, null=True)
+    order_items = models.TextField(default='Default Order Items')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'Order {self.id}'

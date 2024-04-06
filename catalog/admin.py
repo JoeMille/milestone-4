@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import admin
-from .models import Category, Product, Basket, BasketItem, Review, ContactMessage
+from .models import Category, Product, Basket, BasketItem, Review, ContactMessage, Order  # Add Order to the import statement
 
 class ProductAdminForm(forms.ModelForm):
     description2 = forms.CharField(widget=forms.TextInput)
@@ -17,8 +17,13 @@ class ProductAdmin(admin.ModelAdmin):
         return obj.description2[:50]  # Truncate to 50 characters
     short_description2.short_description = 'Description 2'  # Column header
 
+class OrderAdmin(admin.ModelAdmin):  # Add a new OrderAdmin class
+    list_display = ['id', 'user', 'status', 'created_at', 'updated_at']
+    list_filter = ['status']
+
 admin.site.register(ContactMessage)  # register ContactMessage without a custom admin
 admin.site.register(Category)
 admin.site.register(Product, ProductAdmin)  # register ProductAdmin with Product
+admin.site.register(Order, OrderAdmin)  # register OrderAdmin with Order
 admin.site.site_header = 'Cosmic Commerce Admin Portal'
 admin.site.site_title = 'Admin Operations'

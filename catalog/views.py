@@ -12,7 +12,7 @@ from django.contrib.auth import logout as auth_logout
 from django.db.models import Prefetch
 from django.core.mail import send_mail
 from .forms import ContactForm
-from .models import ContactMessage
+from .models import ContactMessage, Order
 from django.contrib.auth.decorators import login_required
 
 # Index page view
@@ -55,6 +55,10 @@ def add_to_basket(request, product_id):
     if not created:
         basket_item.quantity += 1
         basket_item.save()
+
+    # Update the 'basket' session variable
+    request.session['basket'] = list(basket.basketitem_set.values())
+
     return redirect('products')
 
 # User Registration View
@@ -122,7 +126,24 @@ def charge(request):
             source=token,
         )
 
-        return render(request, 'catalog/charge.html')
+        # Retrieve the basket from the session
+        basket = request.session.get('basket')
+        if basket is not None:
+
+            order_items = str(basket)
+            # Create a new Order instance after the charge is created
+            order = Order.objects.create(
+                user=request.user,
+                status='completed',
+                address=request.POST.get('address'),
+                payment_type=request.POST.get('payment_type'),
+                order_items=order_items,
+            )
+        else:
+            return HttpResponse('Error: No order items provided', status=400)
+
+    return render(request, 'catalog/charge.html')
+
 
 # Reviews page view
 

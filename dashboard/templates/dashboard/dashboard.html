@@ -3,24 +3,17 @@
 
 {% block content %}
 
-<div class="dashboard-container">
-    <div class="dashboard-completed-orders">
-        <h2>Your Completed Orders</h2>
-        {% for order in completed_orders %}
-        <div class="order">
-            <h3>Order #{{ order.id }}</h3>
-            <p>Date: {{ order.date }}</p>
-            <p>Total: {{ order.total }}</p>
-            <ul>
-                {% for item in order.items %}
-                <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% empty %}
-        <p>You have no completed orders.</p>
-        {% endfor %}
+<div class="completed-orders">
+    <h2>Your Completed Orders</h2>
+    {% for order in completed_orders %}
+    <div class="order">
+        <h3>Order #{{ order.id }}</h3>
+        <!-- Display other order details... -->
     </div>
+    {% empty %}
+    <p>You have no completed orders.</p>
+    {% endfor %}
+</div>
 
     <div class="dashboard-user-info">
         <h2>Your Info</h2>
