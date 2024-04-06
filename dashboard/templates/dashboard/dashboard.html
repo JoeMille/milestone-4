@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block content %}
-    <div class="completed-orders"></div>
+
+<div class="dashboard-container">
+    <div class="dashboard-completed-orders">
         <h2>Your Completed Orders</h2>
         {% for order in completed_orders %}
         <div class="order">
@@ -19,6 +21,20 @@
         <p>You have no completed orders.</p>
         {% endfor %}
     </div>
+
+    <div class="dashboard-user-info">
+        <h2>Your Info</h2>
+        <!-- user info and password change form... -->
+    </div>
+
+    <div class="dashboard-nasa-info">
+        <h2>NASA Mars Info</h2>
+        <div id="planetary-data">
+            
+    </div>
+</div>
+
+
 
 
 
