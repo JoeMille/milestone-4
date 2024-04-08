@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
-    background-color:rgb(0, 0, 0);
+    background-image: url(../images/planet-moon-background.webp);
+    background-size: cover;
+    background-attachment: fixed;
     margin: 0;
 }
 
@@ -157,7 +159,7 @@ nav ul li a:hover {
     background-color: rgb(33, 44, 156);
     max-width: 500px;
     padding: 20px;
-    margin: 50px auto 35px; /* 50px margin-top, auto margin-right and margin-left, 10px margin-bottom */
+    margin: 100px auto 35px; /* 50px margin-top, auto margin-right and margin-left, 10px margin-bottom */
     text-align: center;
     justify-content: center;
     border-radius: 5px;
@@ -167,13 +169,16 @@ nav ul li a:hover {
 }
 
 /* image carousel styling */
-
+.image-carousel {
+    margin-bottom: 100px;
+    margin-top: 150px;
+}
 .carousel {
     max-height: 400px;
     max-width: 400px;
     overflow: hidden;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-top: 100px;
 }
 
 .carousel__track {
@@ -203,7 +208,7 @@ nav ul li a:hover {
     font-family: "Exo 2", sans-serif;
     color: white;
     text-align: center;
-    background-color: rgb(33, 44, 156);
+    background-color: rgb(16, 10, 44);
     max-width: 600px; 
     max-height: 300px; 
     border-radius: 5px;
@@ -218,7 +223,7 @@ nav ul li a:hover {
     font-family: "Exo 2", sans-serif;
     color: white;
     text-align: center;
-    background-color: rgb(33, 44, 156);
+    background-color: rgb(16, 10, 44);
     max-width: 300px; 
     border-radius: 5px;
     padding: 5px; 

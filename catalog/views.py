@@ -100,6 +100,13 @@ def checkout(request):
     else:
         return redirect('login')
 
+def add_to_basket(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    basket = request.session.get('basket', {})
+    basket[product_id] = basket.get(product_id, 0) + 1
+    request.session['basket'] = basket
+    return redirect('basket')
+
 # Remove items from checkout basket 
 def remove_from_basket(request, item_id):
     if request.method == 'POST':
@@ -116,35 +123,40 @@ def payment(request):
 def charge(request):
     if request.method == 'POST':
         stripe.api_key = settings.STRIPE_SECRET_KEY
-
         token = request.POST['stripeToken']
 
-        charge =  stripe.Charge.create(
-            amount=1000,
-            currency='usd',
-            description='Example charge',
-            source=token,
-        )
+        try:
+            charge =  stripe.Charge.create(
+                amount=1000,
+                currency='usd',
+                description='Example charge',
+                source=token,
+            )
+        except InvalidRequestError as e:
+            return HttpResponse(f'Error: {str(e)}', status=400)
 
         # Retrieve the basket from the session
         basket = request.session.get('basket')
         if basket is not None:
-
             order_items = str(basket)
             # Create a new Order instance after the charge is created
             order = Order.objects.create(
                 user=request.user,
                 status='completed',
                 address=request.POST.get('address'),
-                payment_type=request.POST.get('payment_type'),
                 order_items=order_items,
+            )
+
+            # Create a new CompletedOrder instance
+            CompletedOrder.objects.create(
+                user=request.user,
+                order_items=order_items,
+                address=request.POST.get('address'),
             )
         else:
             return HttpResponse('Error: No order items provided', status=400)
 
     return render(request, 'catalog/charge.html')
-
-
 # Reviews page view
 
 def reviews(request):

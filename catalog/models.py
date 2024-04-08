@@ -96,3 +96,16 @@ class Order(models.Model):
 
     def __str__(self):
         return f'Order {self.id}'
+
+# Defining the completed order model
+
+class CompletedOrder(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='completed_orders')
+    order_items = models.TextField()
+    address = models.CharField(max_length=255)
+    payment_type = models.CharField(max_length=20)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'Completed Order {self.id} for {self.user.username}'
