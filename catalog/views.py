@@ -196,3 +196,4 @@ def delete_review(request, review_id):
     if request.user == review.user:
         review.delete()
     return redirect('reviews')
+
