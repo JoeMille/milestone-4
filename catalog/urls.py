@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import CustomLoginView
 from django.contrib.auth import views as auth_views
 
 # URL patterns for the catalog app
@@ -7,7 +8,7 @@ urlpatterns = [
 
     path('', views.index, name='index'), 
     path('register/', views.register, name='register'), 
-    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', views.logout, name = 'logout'),
     path('products/', views.products, name='products'),
     path('product/<int:product_id>/', views.product_detail, name='product_detail'),

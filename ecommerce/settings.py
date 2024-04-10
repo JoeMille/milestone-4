@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'catalog',
     'products',
     'dashboard',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

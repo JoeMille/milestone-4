@@ -14,6 +14,7 @@ from django.core.mail import send_mail
 from .forms import ContactForm
 from .models import ContactMessage, Order
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
 
 # Index page view
 def index(request):
@@ -72,6 +73,13 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'catalog/register.html', {'form': form})
+
+# Custom Login View
+class CustomLoginView(LoginView):
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('index')
+        return super().dispatch(request, *args, **kwargs)
 
 # Logout view
 
