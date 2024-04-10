@@ -52,13 +52,38 @@
 
     {% endblock %}
 
+ 
+
     <footer class="site-footer">
-        <a href="https://github.com" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-        <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i> Twitter</a>
-        <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
-        <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+        <div class="footer-container">
+            <footer class="footer-links">
+                <a href="https://github.com" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+                <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i> Twitter</a>
+                <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+            </footer>
+            <div class="middle-list">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="{% url 'index' %}">_HOME</a></li>
+                    <li><a href="{% url 'register' %}">_REGISTER</a></li>
+                    <li><a href="{% url 'products' %}">_PRODUCTS</a></li>
+                    <li><a href="{% url 'reviews' %}">_REVIEWS</a></li>
+                    <li><a href="{% url 'checkout' %}">_CHECKOUT</a></li>
+                    <li><a href="{% url 'dashboard' %}">_DASHBOARD</a></li>
+                </ul>
+            </div>
+            <div class="right-content">
+                <p>Cosmic-Commerce e-commerce platform is designed to provide a seamless shopping experience, with a 
+                    futuristic aesthetic built using the principles of design focusing heavily on user interaction,\
+                    authentication and usability. Please browse, sign-up, log-in and test this project to it's fullest
+                    extent. This project is a work of progression and will be updated regularly with new features.
+                 </p>
+                 <p>&copy; 2024 Titles, Content, Featured Content and Future Content Copyright Joe Miller</p>
+            </div>
+        </div>
+        
     </footer>
-</div>
 <!-- ... -->
 
 <!-- Include JavaScript file -->

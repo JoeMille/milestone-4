@@ -91,7 +91,7 @@ body {
 .site-nav {
     font-family: "Exo 2", sans-serif;
     color: #fff;
-    background-color: #1b123f;
+    background-color: rgb(16, 10, 44);
     padding: 10px 0;
     opacity: 0.9;
 }
@@ -152,26 +152,47 @@ nav ul li a:hover {
         right: auto;
     }
 }
+
+/* Footer styling */
+.footer-container {
+    font-family: "Quantico", sans-serif;
+    color: white;
+    background-image: url(../images/dark-planet3.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-bottom: 45px;
+    padding: 20px;
+}
+
+.footer-links, .middle-list, .right-content {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.footer-links {
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Logout function styling */
 
 .index-page-header {
-    /* Box Model */
-    max-width: 500px;
+    max-width: 800px;
     padding: 20px;
     margin: 100px auto 35px;
-
-    /* Positioning */
     text-align: center;
     justify-content: center;
     align-items: center;
-
-    /* Typography */
     font-family: "Anton", sans-serif;
     font-size: 32px;
     color: white;
-
-    /* Visual */
-    background-color: rgb(33, 44, 156);
+    background-image: url(../images/mars-sunrise.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 5px;
     opacity: 0.8;
     box-shadow: 0 0 30px #3498db, 0 0 50px #3498db, 0 0 80px #3498db, 0 0 100px #3498db;
@@ -221,7 +242,7 @@ nav ul li a:hover {
     max-width: 600px; 
     max-height: 300px; 
     border-radius: 5px;
-    padding: 5px; 
+    padding: 10px; 
     position: fixed; 
     top: 0;
     left: 0;
@@ -649,18 +670,6 @@ nav ul li a:hover {
 .edit-review-form textarea {
     width: 400px; 
     height: 200px; 
-}
-
-.site-footer {
-    font-family: "Quantico", sans-serif;
-    font-size: 20px;
-    color: white; 
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding: 20px;
-    background-color: rgb(16, 12, 36);
-    text-align: center;
-    opacity: 0.9;
 }
 
 /* CSS for mobile and small devices */
