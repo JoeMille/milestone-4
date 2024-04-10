@@ -79,6 +79,8 @@ This platform is built using Django, leveraging its powerful "batteries-included
 
 ### Data-base management structure and overview
 
+![DB Schematics](/readme-images/data-base-visual.png)
+
 Cosmic-Commercep leverages a comprehensive database structure aimed at delivering an easy to manage user experience, efficient product management, and effective order processing. The following entities form the core of our sqlite3 database:
 
 #### User
