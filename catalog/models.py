@@ -69,8 +69,12 @@ class ContactMessage(models.Model):
 
 # Order model, allowing for the creation of orders with a user, status, created_at, and updated_at field
 
-from django.db import models
-from django.contrib.auth.models import User
+class Item(models.Model):
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+
+    def __str__(self):
+        return self.name
 
 class Order(models.Model):
     STATUS_CHOICES = [
@@ -90,7 +94,7 @@ class Order(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
     address = models.CharField(max_length=255, null=True)  
     payment_type = models.CharField(max_length=20, choices=PAYMENT_CHOICES, null=True)
-    order_items = models.TextField(default='Default Order Items')
+    order_items = models.ManyToManyField(Item)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

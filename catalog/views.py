@@ -122,17 +122,27 @@ def remove_from_basket(request, item_id):
         item.delete()
     return redirect('checkout')
 
-# Payment page view
 def payment(request):
+    # Your payment processing code here
     return render(request, 'catalog/payment.html')
-
-# Stripe payment view
+    
+# Payment page view
 @csrf_exempt
 def charge(request):
     if request.method == 'POST':
         stripe.api_key = settings.STRIPE_SECRET_KEY
         token = request.POST['stripeToken']
 
+        # Create Order object
+        try:
+            order = Order.objects.create(
+                user=request.user,
+                # Add other necessary fields here
+            )
+        except Exception as e:
+            return HttpResponse(f'Error: {str(e)}', status=400)
+
+        # Create Stripe charge
         try:
             charge =  stripe.Charge.create(
                 amount=1000,
@@ -143,26 +153,8 @@ def charge(request):
         except InvalidRequestError as e:
             return HttpResponse(f'Error: {str(e)}', status=400)
 
-        # Retrieve the basket from the session
-        basket = request.session.get('basket')
-        if basket is not None:
-            order_items = str(basket)
-            # Create a new Order instance after the charge is created
-            order = Order.objects.create(
-                user=request.user,
-                status='completed',
-                address=request.POST.get('address'),
-                order_items=order_items,
-            )
-
-            # Create a new CompletedOrder instance
-            CompletedOrder.objects.create(
-                user=request.user,
-                order_items=order_items,
-                address=request.POST.get('address'),
-            )
-        else:
-            return HttpResponse('Error: No order items provided', status=400)
+        # Redirect to a "payment complete" page after a successful charge
+        return redirect('payment_complete')
 
     return render(request, 'catalog/charge.html')
 # Reviews page view
@@ -205,3 +197,5 @@ def delete_review(request, review_id):
         review.delete()
     return redirect('reviews')
 
+def payment_complete(request):
+    return render(request, 'catalog/payment_complete.html')

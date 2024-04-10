@@ -8,7 +8,7 @@
 - [License](#license)
 
 ## Usage
-As a prospective user of the Cosmic-Commerce application, I would like a seamless and interactive aesthetic that embodies the styles of generally enjoyable science fiction, whether it be browsing a catalog of futuristic legendary vehicles, others rendered from development description, armor and off planet gear, or simply viewing the constantly evolving particles JSON background and page turn animations. As a user I expect fast loading times, consistent feature design and the ability to explore products further, create an account and make mock purchases of said products within the catalog. Once my journey as a user is complete I would like to logout securely and feel confident my database data and user info is securely stored using the best principle available within the project confines.
+As a prospective user of the Cosmic-Commerce application, I would like a seamless and interactive aesthetic that embodies the styles of generally easy to digest well known science fiction, whether it be browsing a catalog of futuristic legendary vehicles, others rendered from development description, armor and off planet gear, or simply viewing the constantly evolving particles JSON background and page turn animations. As a user I expect fast loading times, consistent feature design and the ability to explore products further, create an account and make mock purchases of said products within the catalog. Once my journey as a user is complete I would like to logout securely and feel confident my database data and user info is securely stored using the best principle available within the project confines.
 
 
 ## Project features 

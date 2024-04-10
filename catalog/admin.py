@@ -17,7 +17,7 @@ class ProductAdmin(admin.ModelAdmin):
         return obj.description2[:50]  # Truncate to 50 characters
     short_description2.short_description = 'Description 2'  # Column header
 
-class OrderAdmin(admin.ModelAdmin):  # Add a new OrderAdmin class
+class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'status', 'created_at', 'updated_at']
     list_filter = ['status']
 
