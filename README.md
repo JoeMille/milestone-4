@@ -7,23 +7,8 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-## Installation
-
-
-
 ## Usage
 As a prospective user of the Cosmic-Commerce application, I would like a seamless and interactive aesthetic that embodies the styles of generally enjoyable science fiction, whether it be browsing a catalog of futuristic legendary vehicles, others rendered from development description, armor and off planet gear, or simply viewing the constantly evolving particles JSON background and page turn animations. As a user I expect fast loading times, consistent feature design and the ability to explore products further, create an account and make mock purchases of said products within the catalog. Once my journey as a user is complete I would like to logout securely and feel confident my database data and user info is securely stored using the best principle available within the project confines.
-
-## Bugs
-module import errors whilst creating reviews app, removed conflicting application names and path, rewrote reviews definition and tested by running isolated offline test. 
-
-reviews not being stored successfully due to naming and models set up preventing
-them from renderign to DB
-
-featured products added to add further specification to site, required secondary styling rather than inheriting as child
-
-admin database not receiving review "comments", renamed and reset 
-
 
 
 ## Project features 
@@ -112,11 +97,45 @@ Automatically records system changes, providing an audit trail for administrativ
 
 This schema forms the backbone of our platform's database.
 
-## Bugs, Errors and Setbacks
+## Bugs and Resolutions
 
+### Module Import Errors in Reviews App
+**Issue:** While creating the reviews app, module import errors occurred due to conflicting application names and paths.
+**Resolution:** Renamed the conflicting applications and adjusted the import paths accordingly. The `reviews` module definitions were rewritten and validated through isolated offline tests to ensure compatibility and functionality.
 
+### Reviews Not Stored in Database
+**Issue:** Naming conventions and model configurations were incorrect, which prevented reviews from being saved to the database.
+**Resolution:** Reviewed and revised model field names and relationships to ensure data integrity and proper association between reviews and related entities. Conducted migrations to implement the updated models.
 
+### Featured Products Styling
+**Issue:** New 'Featured Products' functionality required specific styles that could not be inherited from parent elements.
+**Resolution:** Implemented secondary styling dedicated to 'Featured Products', ensuring that the new functionality had a distinct and appealing visual presentation without inheriting unrelated styles.
 
+### Admin Database Review Comments Not Captured
+**Issue:** Review comments were not being captured or displayed in the admin database interface.
+**Resolution:** Renamed the comment fields for clarity and reset the database migrations to reconcile schema discrepancies, restoring the functionality of review comments in the admin interface.
+
+### Deployment Failure on Heroku
+**Issue:** The project encountered a complete failure during the deployment process to Heroku due to incorrect file structure.
+**Resolution:** Reorganized the file structure to meet Heroku's deployment requirements. Ensured all necessary configuration files were present and correctly set up for Heroku's build process.
+
+### Incomplete requirements.txt File
+**Issue:** The `requirements.txt` file was incomplete, requiring manual addition of each package due to not following the correct template.
+**Resolution:** Regenerated `requirements.txt` using `pip freeze` to accurately capture the current environment's packages. Manually verified and added any missing dependencies to ensure a complete and accurate requirements file.
+
+### Conflicting JavaScript Instances
+**Issue:** Having two instances of particles animation on the loading wrapper caused JavaScript conflicts, preventing proper loading.
+**Resolution:** Removed one instance of the particles animation and implemented a p5.js script to provide the intended visual effect. This allowed the preservation of the `particles.js` library functionality without causing conflicts.
+
+### Stripe Payment Integration Errors
+**Issue:** Users encountered errors with Stripe payment processing when entering card or user information.
+**Resolution:** Investigated the Stripe integration setup to identify configuration or code errors. Ensured that API keys were correctly set and that the payment form was correctly handling user input. Tested the payment flow multiple times to ensure reliability and security.
+
+## Installation
+
+To install Cosmic-Commerce as a template for future project simply navigate to https://github.com/JoeMille/milestone-4, copying the root URL and cloning within your projects terminal. This will download the full Django project available for further customisation. Cloning this project will require user to create their own personal API secret keys for Stripe which until completing will render payment function use impossible. Once your project is prooperly installed and ensuring that manage.py and related files are at the root directory of your project, open a terminal and input the command: python3 manage.py runserver. This will render your project to the browser for devlopment view. 
+
+Once the cloned project is ready for deployment, list all project requirements within a requirements.txt file at the root directory, inputting the command: pip3 install -r requirements.txt. Once completed, create a new Heroku application by navigating to your Heroku dashboard and creating a new application. Finally, commit all staged changes to your git repository and input the terminal command: git push heroku main. Wait whilst heroku uploads all changes to the hosted application and once successfully deployed, navigate to your heroku dashboard and launch your newly compiled application. 
 
 
 ## Summary
