@@ -77,7 +77,42 @@ Cosmic-Commerce e-commerce platform is designed to provide a seamless shopping e
 
 This platform is built using Django, leveraging its powerful "batteries-included" features for web development and its secure, user-friendly authentication system.
 
-### Data-base 
+### Data-base management structure and overview
+
+Cosmic-Commercep leverages a comprehensive database structure aimed at delivering an easy to manage user experience, efficient product management, and effective order processing. The following entities form the core of our sqlite3 database:
+
+#### User
+Represents the registered users of the platform. Inherits from Django's `AbstractUser` for immediate access to authentication functionalities. Includes attributes for usernames, passwords, email addresses, and profile details such as shipping addresses.
+
+#### Group and Permission
+These are part of Django's built-in authentication system, providing role-based permissions and access controls.
+
+#### Basket and BasketItem
+`Basket` is linked to a `User` and can contain multiple `BasketItem`s, which in turn are related to `Product`s. This setup manages the shopping basket features.
+
+#### Product and Category
+`Product` holds all details of the items for sale, including titles, descriptions, pricing, and images. Each product is associated with a `Category`, facilitating organized navigation and product browsing.
+
+#### Order and CompletedOrder
+Post-checkout, an `Order` record is generated capturing the purchase details, user information, and address. `CompletedOrder` may represent the finalized transaction records.
+
+#### ContactMessage
+Stores messages from the contact form, enabling user-administration communication.
+
+#### Review
+Allows users to post reviews on products with ratings and comments, fostering community interaction and product trustworthiness.
+
+#### Session Management
+Handled by `Session` and `AbstractBaseSession`, managing user sessions for secure and seamless user experiences.
+
+#### LogEntry
+Automatically records system changes, providing an audit trail for administrative actions.
+
+This schema forms the backbone of our platform's database.
+
+## Bugs, Errors and Setbacks
+
+
 
 
 
