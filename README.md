@@ -12,8 +12,7 @@
 
 
 ## Usage
-
-use false credit details when testing stripe functionality: 4242 4242 4242 4242 (USD selected)
+As a prospective user of the Cosmic-Commerce application, I would like a seamless and interactive aesthetic that embodies the styles of generally enjoyable science fiction, whether it be browsing a catalog of futuristic legendary vehicles, others rendered from development description, armor and off planet gear, or simply viewing the constantly evolving particles JSON background and page turn animations. As a user I expect fast loading times, consistent feature design and the ability to explore products further, create an account and make mock purchases of said products within the catalog. Once my journey as a user is complete I would like to logout securely and feel confident my database data and user info is securely stored using the best principle available within the project confines.
 
 ## Bugs
 module import errors whilst creating reviews app, removed conflicting application names and path, rewrote reviews definition and tested by running isolated offline test. 
@@ -31,7 +30,7 @@ admin database not receiving review "comments", renamed and reset
 
 # E-Commerce Platform Features
 
-Cosmos e-commerce platform is designed to provide a seamless shopping experience, witha futuristic aesthetic built using the principles of design amassed throughtout the four semesters of the Level 5 Developer course showcasing a true understanding of web development priciples;from browsing products to making a purchase. Below are the main features implemented in this application.
+Cosmic-Commerce e-commerce platform is designed to provide a seamless shopping experience, with a futuristic aesthetic built using the principles of design amassed throughtout the four semesters of the Level 5 Developer course showcasing a true understanding of web development priciples;from browsing products, user auth, product management or simply making a purchase. Below are the main features implemented in this application.
 
 ## User Authentication and Registration
 
@@ -78,8 +77,18 @@ Cosmos e-commerce platform is designed to provide a seamless shopping experience
 
 This platform is built using Django, leveraging its powerful "batteries-included" features for web development and its secure, user-friendly authentication system.
 
+### Data-base 
 
-## Contributing
+
+
+
+## Summary
+
+MS4 (Mileston-Project-4) proved to be the most difficult of all combined projects as it required embodying all elements learned and practiced throughout the last three modules, often times pushing development back to refresh knowledge of the priciples of each module. A personal mountain to hike was anything javascript related, at first I not only, admittedly, feared the language but also avoided it's use. This is a humongous regret in hindsight as it has now become the most interesting and versatile language I have yet been exposed to. Trying to highlight my huge appreciation of the language this project utilises open source javascript libraries that bear the weight of the "interactive-sci-fi" aesthetic as well as the sites payment model. In the future I hope to continue to expand my understanding of all modules content and truly hope that Cosmic-Commerce is a firm representation of what can be learned via the SDC/CI syllabus and what features and personality I can personally bring to the project table. I hope this project is an enjoyable perusal, especially for fans of some of the "Techy/Trekky" choices made throughout. 
+
+Kindest of thanks for reading and exploring, and please feel free to follow this account for future releases and projects as well as view my personal progression through past projects. 
+
+"End Session". 
 
 
 ## License
