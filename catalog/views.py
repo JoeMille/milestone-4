@@ -98,13 +98,21 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     return render(request, 'catalog/product_detail.html', {'product': product})
 
-# Checkout page view
+
 def checkout(request):
     if request.user.is_authenticated:
         basket, created = Basket.objects.get_or_create(user=request.user)
-        for item in basket.basketitem_set.all():
-            print(item.product.title)  # Print the title of the product
-        return render(request, 'catalog/checkout.html', {'basket': basket})
+        if request.method == 'POST':
+            form = CheckoutForm(request.POST)
+            if form.is_valid():
+                order = form.save(commit=False)
+                order.user = request.user
+                order.save()
+                messages.success(request, 'Order placed successfully.')
+                return redirect('order_success')
+        else:
+            form = CheckoutForm()
+        return render(request, 'catalog/checkout.html', {'basket': basket, 'form': form})
     else:
         return redirect('login')
 

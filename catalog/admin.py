@@ -18,8 +18,11 @@ class ProductAdmin(admin.ModelAdmin):
     short_description2.short_description = 'Description 2'  # Column header
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'status', 'created_at', 'updated_at']
-    list_filter = ['status']
+    list_display = ('id', 'user', 'status', 'created_at', 'updated_at', 'display_order_items')
+
+    def display_order_items(self, obj):
+        return ", ".join([item.name for item in obj.order_items.all()])
+    display_order_items.short_description = 'Order Items'
 
 admin.site.register(ContactMessage)  # register ContactMessage without a custom admin
 admin.site.register(Category)
