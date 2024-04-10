@@ -22,7 +22,7 @@ Cosmic-Commerce e-commerce platform is designed to provide a seamless shopping e
 - **User Registration**: New users can sign up for an account using our registration form.
 - **User Login and Logout**: Users can log in to access their accounts and log out when they're done.
 
-![User Authentication Process](path/to/authentication_image.png)
+
 
 ## Product Catalog
 
@@ -30,7 +30,7 @@ Cosmic-Commerce e-commerce platform is designed to provide a seamless shopping e
 - **Product Details**: Customers can view detailed information about a product by visiting the product detail page.
 - **Category-based Browsing**: Products are organized by categories, making it easy for customers to browse items of interest.
 
-![Product Catalog Example](path/to/catalog_image.png)
+
 
 ## Shopping Basket
 
@@ -38,7 +38,6 @@ Cosmic-Commerce e-commerce platform is designed to provide a seamless shopping e
 - **Basket Management**: Users can view, update, or remove items from their basket.
 - **Checkout Process**: The checkout view allows users to review their basket items before proceeding with the purchase.
 
-![Shopping Basket Interface](path/to/basket_image.png)
 
 ## Order and Payment
 
@@ -62,7 +61,7 @@ Cosmic-Commerce e-commerce platform is designed to provide a seamless shopping e
 
 This platform is built using Django, leveraging its powerful "batteries-included" features for web development and its secure, user-friendly authentication system.
 
-### Data-base management structure and overview
+#### Data-base management structure and overview
 
 ![DB Schematics](/readme-images/data-base-visual.png)
 
