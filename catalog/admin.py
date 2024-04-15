@@ -1,11 +1,11 @@
 from django import forms
 from django.contrib import admin
-from .models import Category, Product, Basket, BasketItem, Review, ContactMessage, Order  # Add Order to the import statement
+from .models import User, Product, Order, Item, Basket, BasketItem, Category, Review, ContactMessage, CompletedOrder
 
 class ProductAdminForm(forms.ModelForm):
     description2 = forms.CharField(widget=forms.TextInput)
 
-    class Meta:
+class Meta:
         model = Product
         fields = '__all__'
 
@@ -15,7 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     def short_description2(self, obj):
         return obj.description2[:50]  # Truncate to 50 characters
-    short_description2.short_description = 'Description 2'  # Column header
+    short_description2.short_description = 'Description 2'  
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'status', 'created_at', 'updated_at', 'display_order_items')
@@ -24,9 +24,14 @@ class OrderAdmin(admin.ModelAdmin):
         return ", ".join([item.name for item in obj.order_items.all()])
     display_order_items.short_description = 'Order Items'
 
-admin.site.register(ContactMessage)  # register ContactMessage without a custom admin
-admin.site.register(Category)
-admin.site.register(Product, ProductAdmin)  # register ProductAdmin with Product
-admin.site.register(Order, OrderAdmin)  # register OrderAdmin with Order
+admin.site.register(Product, ProductAdmin) 
+admin.site.register(Order, OrderAdmin) 
 admin.site.site_header = 'Cosmic Commerce Admin Portal'
 admin.site.site_title = 'Admin Operations'
+admin.site.register(Item)
+admin.site.register(Basket)
+admin.site.register(BasketItem)
+admin.site.register(Category)
+admin.site.register(Review)
+admin.site.register(ContactMessage)
+admin.site.register(CompletedOrder)

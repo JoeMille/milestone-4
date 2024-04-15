@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 # Category model, allowing for the creation of categories for products
 class Category(models.Model):
@@ -58,7 +60,7 @@ class Review(models.Model):
         return f'Review for {self.product.title} by {self.user.username}'
 
 class ContactMessage(models.Model):
-    name = models.CharField(max_length=255, default='Default Name')
+    name = models.CharField(max_length=255)
     email = models.EmailField()
     message = models.TextField()
 
@@ -68,11 +70,12 @@ class ContactMessage(models.Model):
 # Order model, allowing for the creation of orders with a user, status, created_at, and updated_at field
 
 class Item(models.Model):
-    name = models.CharField(max_length=255, default='Default Name')
+    name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
         return self.name
+
 
 class Order(models.Model):
     STATUS_CHOICES = [
@@ -90,12 +93,8 @@ class Order(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='catalog_orders')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
-    house = models.CharField(max_length=255, default='Default House')
-    street = models.CharField(max_length=255, default='Default Street')
-    city = models.CharField(max_length=255, default='Default City')
-    county = models.CharField(max_length=255, default='Default County')
-    eircode = models.CharField(max_length=7, default='0000000')
-    payment_type = models.CharField(max_length=20, choices=PAYMENT_CHOICES, default='credit_card')
+    address = models.CharField(max_length=255, null=True)  
+    payment_type = models.CharField(max_length=20, choices=PAYMENT_CHOICES, null=True)
     order_items = models.ManyToManyField(Item)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

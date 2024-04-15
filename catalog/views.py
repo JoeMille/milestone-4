@@ -1,5 +1,7 @@
 # views.py
 import stripe
+from django import forms
+from django.contrib import messages
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -12,7 +14,7 @@ from django.contrib.auth import logout as auth_logout
 from django.db.models import Prefetch
 from django.core.mail import send_mail
 from .forms import ContactForm
-from .models import ContactMessage, Order
+from .models import ContactMessage, Order, CompletedOrder
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 
@@ -116,6 +118,20 @@ def checkout(request):
     else:
         return redirect('login')
 
+class CheckoutForm(forms.Form):
+    house = forms.CharField(max_length=255)
+    street = forms.CharField(max_length=255)
+    city = forms.CharField(max_length=255)
+    county = forms.CharField(max_length=255)
+    eircode = forms.CharField(max_length=255)
+
+def basket(request):
+    basket = request.session.get('basket', {})
+    products = Product.objects.filter(id__in=basket.keys())
+    total = sum([product.price for product in products])
+    return render(request, 'basket.html', {'products': products, 'total': total})
+
+# Add items to checkout basket
 def add_to_basket(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     basket = request.session.get('basket', {})
@@ -131,9 +147,34 @@ def remove_from_basket(request, item_id):
     return redirect('checkout')
 
 def payment(request):
+    if request.method == 'POST':
+        # Get the order details from the form
+        house = request.POST.get('house')
+        street = request.POST.get('street')
+        city = request.POST.get('city')
+        county = request.POST.get('county')
+        eircode = request.POST.get('eircode')
+
+        # Get the basket for the current user
+        basket = Basket.objects.get(user=request.user)
+
+        # Create a string representation of the order items
+        order_items = ', '.join([f'{item.product.title} (Quantity: {item.quantity})' for item in basket.basketitem_set.all()])
+
+        # Create a new completed order
+        order = CompletedOrder(
+            user=request.user,
+            order_items=order_items,
+            address=f'{house}, {street}, {city}, {county}, {eircode}',
+            payment_type='Card'
+        )
+        order.save()
+
+        messages.success(request, 'Your order has been placed successfully!')
+
     # Your payment processing code here
     return render(request, 'catalog/payment.html')
-    
+
 # Payment page view
 @csrf_exempt
 def charge(request):
