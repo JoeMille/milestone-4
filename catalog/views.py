@@ -17,6 +17,7 @@ from .forms import ContactForm
 from .models import ContactMessage, Order, CompletedOrder
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
+from stripe.error import InvalidRequestError
 
 # Index page view
 def index(request):
